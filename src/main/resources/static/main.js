@@ -1,9 +1,4 @@
-//获取url中的参数
-    function getUrlParam(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
-        if (r != null) return unescape(r[2]); return null; //返回参数值
-    }
+
 
 
     var word = getUrlParam('word');
@@ -13,7 +8,6 @@
         gg();
     }else{
         gg(word);
-        console.log(word)
     }
 
 function junpTo(keyword,pageNo){
@@ -49,12 +43,26 @@ function gg(word) {
                 stars+="<a  href='javascript:void()' onClick=junpTo('"+star.name+"') >"+star.name+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>"
             }
             stars+="</p>"
-            main.after("<div class='aaa'><p><b>"+v2.title+"</b></p>"+tag+stars+"<a target='_blank' href=fff/"+v2.fileName[0]+"><img src=fff/"+v2.coverLocalPath+"></a></div><br /><br />");
+            main.after("<div class='aaa'><p><b>"+v2.title+"</b></p>"+tag+stars+"<a target='_blank' href=play.html?fileNames="+Base64.encode(v2.fileName)+"><img src=fff/"+v2.coverLocalPath+"></a></div><br /><br />");
+            //main.after("<div class='aaa'><p><b>"+v2.title+"</b></p>"+tag+stars+"<a target='_blank' href=fff/"+v2.fileName[0]+"><img src=fff/"+v2.coverLocalPath+"></a></div><br /><br />");
             //main.after("<div><p><b>"+v2.title+"</b></p>"+tag+stars+"<a target='_blank' href=https://goindex.windychild.com/javclub/"+v2.fileName[0]+"><img src=https://goindex.windychild.com/javclub/"+v2.coverLocalPath+"></a></div><br /><br />");
             //main.after("<div><p><b>"+v2.title+"</b></p>"+tag+stars+"<a target='_blank' href=https://goindex.windychild.com/javclub/"+v2.fileName[0]+"><img src=fff/"+v2.coverLocalPath+"></a></div><br /><br />");
-
+            console.log(v2.fileName)
         }
         main.after("<div class='aaa'><b>共查询到"+data.totalCount+"部影片</b></div>")
     })
 
 }
+
+
+
+
+//Base64编码
+let encoded = Base64.encode("HuanZi!#123.qch@qq.com/fdfd");
+console.log(encoded);
+
+
+//Base64解码
+let decoded = Base64.decode(encoded);
+console.log(decoded);
+
