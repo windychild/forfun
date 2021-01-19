@@ -17,7 +17,7 @@ import java.util.*;
 
 @RestController
 public class FirstController {
-    int pageSize = 5;
+    int pageSize = 15;
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
     @Value("${getInfoFilePath}")
@@ -170,5 +170,7 @@ public class FirstController {
         keys.size();
         return keys.size() + "";
     }
+
+
 }
 
